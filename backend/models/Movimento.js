@@ -23,7 +23,7 @@ const Movimento = db.define('movimento', {
         allowNull: false
     },
     data: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
     }
 },{

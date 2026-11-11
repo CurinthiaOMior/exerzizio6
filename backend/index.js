@@ -10,6 +10,9 @@ const db = require('./db/conn')
 const authMiddleware = require('./middleware/auth.middleware')
 const authcontroller = require('./controller/auth.controller')
 const clientecontroller = require('./controller/cliente.controller')
+const produtocontroller = require('./controller/produto.controller')
+const fornecedorcontroller = require('./controller/fornecedor.controller')
+const movimentocontroller = require('./controller/movimento.controller')
 
 // middleware
 
@@ -17,12 +20,19 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cors())
 
+// 
+
 app.post('/cliente', clientecontroller.cadastrar)
 app.post('/login', authcontroller.login)
 
 app.use(authMiddleware)
 
+app.post('/produto', produtocontroller.cadastrarProduto)
+app.post('/fornecedor', fornecedorcontroller.cadastrarFornecedor)
+app.post('/movimento', movimentocontroller.cadastrarMovimento)
+
 app.get('/cliente/:id', clientecontroller.consultar)
+
 db.sync()
     .then(()=>{
         app.listen(PORT, hostname, ()=>{

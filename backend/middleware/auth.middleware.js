@@ -6,7 +6,7 @@ function authMiddleware(req,res,next){
     if(!token) return res.status(401).json({message: 'token nao fornecido'})
 
         try{
-            const bytes = CryptoJS.AES.decrypt(token, secretkey).toString()
+            const bytes = CryptoJS.AES.decrypt(token, secretkey)
             const dadoscriptografados = bytes.toString(CryptoJS.enc.Utf8)
 
             if(!dadoscriptografados) return res.status(401).json({message: 'token invalido'})
