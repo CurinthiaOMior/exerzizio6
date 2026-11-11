@@ -28,10 +28,13 @@ app.post('/login', authcontroller.login)
 app.use(authMiddleware)
 
 app.post('/produto', produtocontroller.cadastrarProduto)
-app.post('/fornecedor', fornecedorcontroller.cadastrarFornecedor)
 app.post('/movimento', movimentocontroller.cadastrarMovimento)
+app.post('/fornecedor', fornecedorcontroller.cadastrarFornecedor)
 
-app.get('/cliente/:id', clientecontroller.consultar)
+app.get('/fornecedor/:id', fornecedorcontroller.consultar)
+app.get('/fornecedor/nome/nome/:', fornecedorcontroller.consultarNome)
+app.put('/fornecedor/:id', fornecedorcontroller.atualizar)
+app.delete('/fornecedor/:id', fornecedorcontroller.apagar)
 
 db.sync()
     .then(()=>{
