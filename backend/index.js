@@ -22,6 +22,7 @@ app.post('/login', authcontroller.login)
 
 app.use(authMiddleware)
 
+app.get('/cliente/:id', clientecontroller.consultar)
 db.sync()
     .then(()=>{
         app.listen(PORT, hostname, ()=>{

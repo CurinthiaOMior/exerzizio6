@@ -14,6 +14,10 @@ const Fornecedor = db.define('fornecedor', {
     cpf: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    cnpj: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 },{
     tableName: 'fornecedores',

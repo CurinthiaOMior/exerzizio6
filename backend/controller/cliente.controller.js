@@ -18,4 +18,17 @@ const cadastrar = async(req,res)=>{
             res.status(500).json({message: 'erro ao cadastrar dados'})
         }
 }
-module.exports = {cadastrar}
+
+const consultar = async(req,res)=>{
+    const id = req.params.id
+
+    try{
+        const cliente = await Cliente.findByPk(id)
+        if(!cliente) return res.status(404).json({message: 'cliente nao encontrado'})
+            res.status(200).json(cliente)
+    }catch(err){
+
+    }
+}
+
+module.exports = {cadastrar, consultar}

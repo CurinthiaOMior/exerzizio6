@@ -4,10 +4,10 @@ const resposta = document.getElementById('resposta')
 btncadastrar.addEventListener( 'click', async (e) =>{
     e.preventDefault()
     const valores = {
-        nome: document.getElementById('nome').values,
-        email: document.getElementById('email').values,
-        senha: document.getElementById('senha').values,
-        cpf: document.getElementById('cpf').values
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        senha: document.getElementById('senha').value,
+        cpf: document.getElementById('cpf').value
     }
 
     try{
